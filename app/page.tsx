@@ -1,65 +1,754 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+import React from "react";
+import { motion } from "framer-motion";
+import {
+    ArrowRight,
+    BadgeCheck,
+    BatteryCharging,
+    CalendarCheck,
+    CheckCircle2,
+    ChevronRight,
+    Clock,
+    Ear,
+    Gauge,
+    Globe,
+    HeartHandshake,
+    MapPin,
+    MessageCircle,
+    Music2,
+    Phone,
+    ShieldCheck,
+    Sparkles,
+    Star,
+    Stethoscope,
+    Volume2,
+    Wrench,
+} from "lucide-react";
+
+const BRAND = "Trợ Thính Âu Việt";
+const PHONE = "0931 702 768";
+const PHONE_TEL = "0931702768";
+const ADDRESS = "1079 Phan Văn Trị, P. Gò Vấp, TP.HCM";
+const HOURS = "8h00 - 17h30";
+const WORKING_DAYS = "Thứ 2 - Thứ 7";
+
+const heroImage =
+    "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=85";
+
+const services = [{
+        icon: Ear,
+        name: "Máy trợ thính chính hãng",
+        description: "Phân phối máy trợ thính từ Mỹ, Đức, Thụy Sỹ với nhiều dòng phù hợp từng mức độ nghe kém.",
+        price: "Tư vấn theo nhu cầu",
+        image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=900&q=85",
+        alt: "Máy trợ thính chính hãng tại Trợ Thính Âu Việt",
+    },
+    {
+        icon: Stethoscope,
+        name: "Đo thính lực & tư vấn",
+        description: "Kiểm tra khả năng nghe, phân tích tình trạng và đề xuất giải pháp phù hợp cho từng khách hàng.",
+        price: "Liên hệ đặt lịch",
+        image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=85",
+        alt: "Đo thính lực và tư vấn máy trợ thính",
+    },
+    {
+        icon: Wrench,
+        name: "Sửa chữa máy trợ thính",
+        description: "Tiếp nhận kiểm tra, vệ sinh, xử lý lỗi âm thanh yếu, rè, mất tiếng hoặc máy hoạt động không ổn định.",
+        price: "Kiểm tra trước khi báo giá",
+        image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=85",
+        alt: "Sửa chữa máy trợ thính chuyên nghiệp",
+    },
+    {
+        icon: Gauge,
+        name: "Bảo trì & hiệu chỉnh máy",
+        description: "Tinh chỉnh âm lượng, chương trình nghe và vệ sinh định kỳ giúp máy hoạt động ổn định, dễ nghe hơn.",
+        price: "Hỗ trợ sau bán",
+        image: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=900&q=85",
+        alt: "Hiệu chỉnh máy trợ thính tại Gò Vấp",
+    },
+    {
+        icon: BatteryCharging,
+        name: "Pin & phụ kiện trợ thính",
+        description: "Cung cấp pin, núm tai, dây dẫn, phụ kiện thay thế và vật tư chăm sóc máy trợ thính.",
+        price: "Có sẵn tại cửa hàng",
+        image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?auto=format&fit=crop&w=900&q=85",
+        alt: "Pin và phụ kiện máy trợ thính",
+    },
+    {
+        icon: HeartHandshake,
+        name: "Chăm sóc khách hàng lớn tuổi",
+        description: "Hướng dẫn sử dụng nhẹ nhàng, dễ hiểu, đồng hành cùng gia đình trong quá trình làm quen với máy.",
+        price: "Tận tâm từng trường hợp",
+        image: "https://images.unsplash.com/photo-1581579438747-104c53d7fbc4?auto=format&fit=crop&w=900&q=85",
+        alt: "Tư vấn máy trợ thính cho người lớn tuổi",
+    },
+];
+
+const trustBadges = [{
+        icon: BadgeCheck,
+        title: "Hàng Chính Hãng",
+        text: "Máy trợ thính Mỹ - Đức - Thụy Sỹ",
+    },
+    {
+        icon: Stethoscope,
+        title: "Tư Vấn Theo Thính Lực",
+        text: "Chọn máy theo tình trạng nghe thực tế",
+    },
+    {
+        icon: ShieldCheck,
+        title: "Bảo Trì & Hiệu Chỉnh",
+        text: "Đồng hành sau bán, hỗ trợ sử dụng lâu dài",
+    },
+    {
+        icon: MapPin,
+        title: "Cửa Hàng Gò Vấp",
+        text: "Dễ ghé trực tiếp tại Phan Văn Trị",
+    },
+];
+
+const problems = [{
+        title: "Nghe không rõ lời nói",
+        text: "Người thân phải lặp lại nhiều lần, đặc biệt khi nói chuyện trong môi trường đông người.",
+    },
+    {
+        title: "Sợ mua nhầm máy không phù hợp",
+        text: "Mỗi tình trạng nghe kém cần cấu hình và kiểu máy khác nhau, không nên chọn theo cảm tính.",
+    },
+    {
+        title: "Máy cũ bị rè, yếu hoặc khó chịu",
+        text: "Máy trợ thính cần được vệ sinh, kiểm tra và hiệu chỉnh định kỳ để nghe thoải mái hơn.",
+    },
+];
+
+const whyChooseUs = [{
+        icon: Ear,
+        title: "Hiểu đúng nhu cầu nghe",
+        text: "Tư vấn dựa trên mức độ nghe, thói quen sinh hoạt và khả năng thích nghi của từng khách hàng.",
+    },
+    {
+        icon: Wrench,
+        title: "Có sửa chữa - bảo trì",
+        text: "Không chỉ bán máy, Âu Việt còn hỗ trợ kiểm tra, vệ sinh, thay phụ kiện và hiệu chỉnh máy.",
+    },
+    {
+        icon: HeartHandshake,
+        title: "Tận tâm với người lớn tuổi",
+        text: "Giải thích chậm rãi, hướng dẫn kỹ cách đeo, tháo, thay pin và bảo quản máy tại nhà.",
+    },
+    {
+        icon: MapPin,
+        title: "Địa chỉ rõ ràng tại TP.HCM",
+        text: "Cửa hàng tại 1079 Phan Văn Trị, P. Gò Vấp, thuận tiện ghé tư vấn trực tiếp.",
+    },
+];
+
+const process = [{
+        step: "01",
+        title: "Gọi Zalo đặt lịch",
+        text: "Liên hệ hotline để được hẹn thời gian tư vấn phù hợp, tránh chờ lâu tại cửa hàng.",
+    },
+    {
+        step: "02",
+        title: "Kiểm tra nhu cầu nghe",
+        text: "Lắng nghe tình trạng, thói quen sinh hoạt và mức độ khó nghe của khách hàng.",
+    },
+    {
+        step: "03",
+        title: "Tư vấn máy phù hợp",
+        text: "Đề xuất dòng máy, kiểu dáng, mức công suất và phụ kiện phù hợp với nhu cầu thực tế.",
+    },
+    {
+        step: "04",
+        title: "Hiệu chỉnh & hướng dẫn sử dụng",
+        text: "Tinh chỉnh âm thanh, hướng dẫn đeo máy, bảo quản, thay pin và lịch bảo trì định kỳ.",
+    },
+];
+
+const reviews = [{
+        quote: "Ông năm nay đã ngoài 90, Trước đây Ông có đeo máy trong tai, đã được 4-5 năm.Nay Ông nâng cấp hỗ trợ bên Phải.Ông nói: Ông lớn tuổi rồi, muốn nghe rõ hơn, giao tiếp mỗi khi có nói chuyện với con ,cháu và khách đến thăm Ông.",
+        name: "Ông Thanh, Gò Vấp",
+        image: "/images/tro-thinh-1.jpg",
+        alt: "Khách hàng lớn tuổi được tư vấn máy trợ thính tại Trợ Thính Âu Việt",
+    },
+    {
+        quote: "Tôi mang máy cũ tới kiểm tra vì nghe rè. Cửa hàng vệ sinh và hiệu chỉnh lại, dùng ổn hơn hẳn.",
+        name: "Cô Quỳnh, Bình Thạnh",
+        image: "/images/tro-thinh-2.jpg",
+        alt: "Khách hàng sử dụng máy trợ thính sau khi hiệu chỉnh",
+    },
+    {
+        quote: "Địa chỉ dễ tìm, tư vấn rõ ràng, không ép mua. Có pin và phụ kiện sẵn nên rất tiện cho người lớn tuổi.",
+        name: "Chị Lan, Phú Nhuận",
+        image: "/images/tro-thinh-3.jpg",
+        alt: "Khách hàng đeo máy trợ thính tại cửa hàng Trợ Thính Âu Việt",
+    },
+];
+
+const faqs = [{
+        question: "Người lớn tuổi mới dùng máy trợ thính có cần thời gian làm quen không?",
+        answer: "Có. Tai và não cần thời gian thích nghi lại với âm thanh. Âu Việt sẽ hướng dẫn cách đeo, thời lượng sử dụng ban đầu và lịch hiệu chỉnh phù hợp.",
+    },
+    {
+        question: "Máy trợ thính bị rè hoặc nghe yếu có sửa được không?",
+        answer: "Tùy tình trạng máy. Cửa hàng sẽ kiểm tra, vệ sinh, đánh giá lỗi và tư vấn phương án sửa chữa hoặc hiệu chỉnh trước khi báo chi phí.",
+    },
+    {
+        question: "Có bán pin và phụ kiện máy trợ thính không?",
+        answer: "Có. Trợ Thính Âu Việt cung cấp pin, núm tai, phụ kiện thay thế và hỗ trợ hướng dẫn cách bảo quản để máy dùng bền hơn.",
+    },
+    {
+        question: "Nên chọn máy trợ thính trong tai hay sau tai?",
+        answer: "Việc lựa chọn phụ thuộc vào mức độ nghe kém, cấu trúc tai, thói quen sinh hoạt và khả năng thao tác của người dùng. Bạn nên đến cửa hàng để được tư vấn trực tiếp.",
+    },
+    {
+        question: "Cửa hàng làm việc vào thời gian nào?",
+        answer: `Trợ Thính Âu Việt làm việc từ ${HOURS}, ${WORKING_DAYS}, tại ${ADDRESS}.`,
+    },
+];
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 28 },
+    visible: { opacity: 1, y: 0 },
+};
+
+type SectionHeadingProps = {
+    eyebrow ? : string;
+    title: string;
+    subtitle ? : string;
+    light ? : boolean;
+};
+
+function SectionHeading({ eyebrow, title, subtitle, light = false }: SectionHeadingProps) {
+    return (
+        <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.55, ease: "easeOut" }}
+      className="mx-auto mb-10 max-w-3xl text-center"
+    >
+      {eyebrow && (
+        <p
+          className={`mb-3 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ${
+            light ? "bg-white/10 text-emerald-100" : "bg-emerald-700/10 text-emerald-700"
+          }`}
+        >
+          <Sparkles className="h-4 w-4" />
+          {eyebrow}
+        </p>
+      )}
+      <h2
+        className={`font-serif text-3xl font-semibold tracking-tight sm:text-4xl ${
+          light ? "text-white" : "text-slate-950"
+        }`}
+      >
+        {title}
+      </h2>
+      {subtitle && (
+        <p className={`mt-4 text-base leading-7 ${light ? "text-emerald-50/80" : "text-slate-600"}`}>
+          {subtitle}
+        </p>
+      )}
+    </motion.div>
+    );
+}
+
+type CTAButtonProps = {
+    children: React.ReactNode;
+    href ? : string;
+    variant ? : "primary" | "secondary" | "light";
+    className ? : string;
+};
+
+function CTAButton({
+    children,
+    href = `tel:${PHONE_TEL}`,
+    variant = "primary",
+    className = "",
+}: CTAButtonProps) {
+    const base =
+        "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-emerald-600/20";
+    const styles = {
+        primary: "bg-emerald-700 text-white shadow-lg shadow-emerald-900/15 hover:-translate-y-0.5 hover:bg-emerald-900",
+        secondary: "border border-emerald-700/25 bg-white/80 text-emerald-800 backdrop-blur hover:-translate-y-0.5 hover:border-emerald-700 hover:bg-emerald-50",
+        light: "bg-white text-emerald-800 shadow-lg shadow-emerald-950/20 hover:-translate-y-0.5 hover:bg-emerald-50",
+    };
+
+    return (
+        <a href={href} className={`${base} ${styles[variant]} ${className}`}>
+      {children}
+    </a>
+    );
+}
+
+export default function TroThinhAuVietLandingPage() {
+    return (
+        <div className="min-h-screen overflow-hidden bg-[#F7FAF6] font-sans text-slate-800 antialiased">
+      <header className="sticky top-0 z-50 border-b border-emerald-950/10 bg-[#F7FAF6]/90 backdrop-blur-xl">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Main navigation">
+          <a href="#hero" className="flex items-center gap-2 font-serif text-xl font-bold tracking-tight text-emerald-900 sm:text-2xl">
+            <span className="grid h-10 w-10 place-items-center rounded-2xl bg-emerald-700 text-white">
+              <Ear className="h-6 w-6" />
+            </span>
+            <span>{BRAND}</span>
+          </a>
+
+          <div className="hidden items-center gap-8 text-sm font-semibold text-slate-600 md:flex">
+            <a className="transition hover:text-emerald-700" href="#services">
+              Dịch vụ
+            </a>
+            <a className="transition hover:text-emerald-700" href="#process">
+              Quy trình
+            </a>
+            <a className="transition hover:text-emerald-700" href="#reviews">
+              Đánh giá
+            </a>
+            <a className="transition hover:text-emerald-700" href="#contact">
+              Liên hệ
+            </a>
+          </div>
+
+          <CTAButton className="px-4 py-2.5 sm:px-5" href={`tel:${PHONE_TEL}`}>
+            <Phone className="h-4 w-4" />
+            <span className="hidden sm:inline">Hotline:</span> {PHONE}
+          </CTAButton>
+        </nav>
+      </header>
+
+      <main>
+        <section id="hero" className="relative isolate px-4 pb-16 pt-10 sm:px-6 sm:pb-24 lg:px-8 lg:pt-16">
+          <div className="absolute inset-x-0 top-20 -z-10 mx-auto h-72 max-w-5xl rounded-full bg-emerald-200/45 blur-3xl" />
+          <div className="absolute -right-20 top-52 -z-10 h-72 w-72 rounded-full bg-lime-200/40 blur-3xl" />
+          <div className="absolute left-0 top-0 -z-10 h-full w-full opacity-[0.06] [background-image:linear-gradient(120deg,#065f46_1px,transparent_1px)] [background-size:24px_24px]" />
+
+          <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.65, ease: "easeOut" }}
+              className="text-center lg:text-left"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-700/15 bg-white/70 px-4 py-2 text-sm font-semibold text-emerald-800 shadow-sm backdrop-blur">
+                <MapPin className="h-4 w-4" />
+                {ADDRESS}
+              </div>
+
+              <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                {BRAND} - Máy Trợ Thính Chính Hãng Mỹ, Đức, Thụy Sỹ Tại Gò Vấp
+              </h1>
+
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg lg:mx-0">
+                Tư vấn máy trợ thính phù hợp theo nhu cầu nghe, hỗ trợ pin, sửa chữa, bảo trì và hiệu chỉnh máy. Đồng hành nhẹ nhàng cùng người lớn tuổi để nghe rõ hơn mỗi ngày.
+              </p>
+
+              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+                <CTAButton href={`tel:${PHONE_TEL}`}>
+                  <Phone className="h-5 w-5" />
+                  Gọi Tư Vấn Ngay
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </CTAButton>
+                <CTAButton href="#services" variant="secondary">
+                  <Volume2 className="h-5 w-5" />
+                  Xem Dịch Vụ
+                </CTAButton>
+              </div>
+
+              <div className="mt-8 grid gap-3 text-left text-sm text-slate-600 sm:grid-cols-3">
+                <div className="rounded-2xl bg-white/75 p-4 shadow-sm ring-1 ring-emerald-950/5">
+                  <CheckCircle2 className="mb-2 h-5 w-5 text-emerald-700" />
+                  Tư vấn chọn máy theo tình trạng nghe
+                </div>
+                <div className="rounded-2xl bg-white/75 p-4 shadow-sm ring-1 ring-emerald-950/5">
+                  <CheckCircle2 className="mb-2 h-5 w-5 text-emerald-700" />
+                  Sửa chữa, bảo trì, hiệu chỉnh máy
+                </div>
+                <div className="rounded-2xl bg-white/75 p-4 shadow-sm ring-1 ring-emerald-950/5">
+                  <CheckCircle2 className="mb-2 h-5 w-5 text-emerald-700" />
+                  Làm việc {HOURS}, {WORKING_DAYS}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.12, ease: "easeOut" }}
+              className="relative mx-auto w-full max-w-md lg:max-w-none"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+              <div className="absolute -left-6 -top-6 h-32 w-32 rounded-full bg-emerald-300/35 blur-2xl" />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/80 bg-white p-3 shadow-2xl shadow-emerald-950/10">
+                <img
+                  src={heroImage}
+                  alt="Tư vấn máy trợ thính chính hãng tại Trợ Thính Âu Việt Gò Vấp"
+                  className="h-full w-full rounded-[1.5rem] object-cover"
+                />
+                <div className="absolute bottom-6 left-6 right-6 rounded-3xl bg-white/92 p-4 shadow-lg backdrop-blur-md">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="font-serif text-lg font-semibold text-slate-950">Nghe rõ hơn, sống kết nối hơn</p>
+                      <p className="mt-1 text-sm text-slate-600">Tư vấn tận tâm · hiệu chỉnh theo nhu cầu</p>
+                    </div>
+                    <div className="rounded-2xl bg-emerald-700 p-3 text-white shadow-md">
+                      <Ear className="h-5 w-5" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section aria-label="Trust badges" className="px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="mx-auto grid max-w-7xl gap-3 rounded-[2rem] border border-emerald-950/10 bg-white/70 p-3 shadow-sm backdrop-blur md:grid-cols-4"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            {trustBadges.map((badge) => {
+              const Icon = badge.icon;
+              return (
+                <div key={badge.title} className="flex items-start gap-4 rounded-3xl bg-emerald-50/70 p-4">
+                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-emerald-700/10 text-emerald-700">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-950">{badge.title}</p>
+                    <p className="mt-1 text-sm leading-6 text-slate-600">{badge.text}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </motion.div>
+        </section>
+
+        <section className="px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="Vấn đề thường gặp"
+              title="Nghe Kém Không Chỉ Là Âm Lượng, Mà Là Chất Lượng Cuộc Sống"
+              subtitle="Một chiếc máy phù hợp giúp người dùng nghe rõ lời nói, tự tin giao tiếp và giảm cảm giác mệt mỏi khi phải cố nghe mỗi ngày."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              {problems.map((item, index) => (
+                <motion.article
+                  key={item.title}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
+                  className="rounded-[1.75rem] border border-emerald-950/10 bg-white p-6 shadow-sm"
+                >
+                  <div className="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-emerald-700 text-white">
+                    <Volume2 className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-serif text-xl font-semibold text-slate-950">{item.title}</h3>
+                  <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                  <div className="mt-5 flex items-center gap-2 text-sm font-bold text-emerald-700">
+                    Âu Việt hỗ trợ tư vấn giải pháp <ChevronRight className="h-4 w-4" />
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="services" className="relative px-4 py-20 sm:px-6 lg:px-8">
+          <div className="absolute left-0 top-16 -z-10 h-80 w-80 rounded-full bg-[radial-gradient(circle,#04785720_0%,transparent_65%)] blur-2xl" />
+          <div className="absolute right-0 top-1/2 -z-10 h-96 w-96 rounded-full bg-[radial-gradient(circle,#84cc1620_0%,transparent_62%)] blur-2xl" />
+
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="Dịch vụ chính"
+              title="Máy Trợ Thính, Pin, Sửa Chữa & Hiệu Chỉnh Máy Tại TP.HCM"
+              subtitle="Từ chọn máy mới đến chăm sóc máy đang sử dụng, Trợ Thính Âu Việt hỗ trợ trọn quy trình để khách hàng nghe thoải mái và ổn định hơn."
+            />
+
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {services.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.article
+                    key={item.name}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.5, delay: index * 0.06, ease: "easeOut" }}
+                    whileHover={{ y: -8 }}
+                    className="group rounded-[1.75rem] border border-emerald-950/10 bg-white/80 p-3 shadow-sm backdrop-blur transition-shadow duration-300 hover:shadow-xl hover:shadow-emerald-950/10"
+                  >
+                    <div className="aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-emerald-50">
+                      <img
+                        src={item.image}
+                        alt={item.alt}
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-3">
+                      <div className="mb-3 grid h-11 w-11 place-items-center rounded-2xl bg-emerald-700/10 text-emerald-700">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="font-serif text-xl font-semibold text-slate-950">{item.name}</h3>
+                      <p className="mt-2 min-h-[4.5rem] text-sm leading-6 text-slate-600">{item.description}</p>
+                      <div className="mt-4 flex items-center justify-between gap-3">
+                        <p className="text-sm font-extrabold text-emerald-700">{item.price}</p>
+                        <a
+                          href={`tel:${PHONE_TEL}`}
+                          className="inline-flex items-center gap-2 rounded-full bg-emerald-700 px-4 py-2 text-xs font-bold text-white transition hover:bg-emerald-900"
+                          aria-label={`Liên hệ tư vấn ${item.name}`}
+                        >
+                          Tư vấn
+                        </a>
+                      </div>
+                    </div>
+                  </motion.article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-emerald-950 px-4 py-20 text-white sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="Vì sao chọn Âu Việt"
+              title="Địa Chỉ Trợ Thính Đáng Tin Cậy Cho Gia Đình Tại Gò Vấp"
+              subtitle="Chúng tôi ưu tiên sự phù hợp, dễ nghe và khả năng sử dụng lâu dài thay vì chỉ bán một thiết bị đơn lẻ."
+              light
+            />
+
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              {whyChooseUs.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.article
+                    key={item.title}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
+                    className="rounded-[1.75rem] border border-white/10 bg-white/10 p-5 backdrop-blur"
+                  >
+                    <div className="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-white text-emerald-800">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="font-serif text-xl font-semibold">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-emerald-50/80">{item.text}</p>
+                  </motion.article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section id="process" className="px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="Quy trình tư vấn"
+              title="4 Bước Đơn Giản Để Chọn Máy Trợ Thính Phù Hợp"
+              subtitle="Quy trình rõ ràng giúp khách hàng và người thân yên tâm hơn trước khi quyết định sử dụng máy trợ thính."
+            />
+
+            <div className="grid gap-5 md:grid-cols-4">
+              {process.map((item, index) => (
+                <motion.article
+                  key={item.step}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
+                  className="relative rounded-[1.75rem] border border-emerald-950/10 bg-white p-6 shadow-sm"
+                >
+                  <p className="font-serif text-4xl font-semibold text-emerald-700/25">{item.step}</p>
+                  <h3 className="mt-4 font-serif text-xl font-semibold text-slate-950">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="reviews" className="relative bg-[#F0F7F2] px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeading
+              eyebrow="Khách hàng chia sẻ"
+              title="Gia Đình Nói Gì Sau Khi Đến Trợ Thính Âu Việt?"
+              subtitle="Những phản hồi tự nhiên từ khách hàng cần tư vấn máy trợ thính, sửa chữa và hiệu chỉnh máy tại TP.HCM."
+            />
+
+            <div className="grid gap-5 md:grid-cols-3">
+              {reviews.map((review, index) => (
+                <motion.article
+  key={review.name}
+  variants={fadeUp}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, margin: "-80px" }}
+  transition={{ duration: 0.55, delay: index * 0.1, ease: "easeOut" }}
+  whileHover={{ y: -6 }}
+  className="overflow-hidden rounded-[1.75rem] border border-emerald-950/10 bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-emerald-950/10"
+>
+  <div className="relative aspect-[4/3] overflow-hidden bg-emerald-50">
+    <img
+      src={review.image}
+      alt={review.alt}
+      className="h-full w-full object-cover transition duration-500 hover:scale-105"
+    />
+    <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-emerald-800 shadow-sm backdrop-blur">
+      Khách hàng thực tế
     </div>
-  );
+  </div>
+
+  <div className="p-5">
+    <div className="mb-4 flex gap-1 text-amber-500" aria-label="5 sao">
+      {Array.from({ length: 5 }).map((_, starIndex) => (
+        <Star key={starIndex} className="h-4 w-4 fill-current" />
+      ))}
+    </div>
+
+    <MessageCircle className="mb-3 h-5 w-5 text-emerald-700" />
+
+    <p className="text-sm leading-7 text-slate-600">
+      “{review.quote}”
+    </p>
+
+    <p className="mt-4 font-bold text-slate-950">- {review.name}</p>
+  </div>
+</motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl">
+            <SectionHeading
+              eyebrow="Câu hỏi thường gặp"
+              title="FAQ Về Máy Trợ Thính, Pin Và Bảo Trì"
+              subtitle="Một số câu hỏi phổ biến trước khi khách hàng đến cửa hàng để tư vấn hoặc kiểm tra máy."
+            />
+
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <motion.details
+                  key={faq.question}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.45, delay: index * 0.04, ease: "easeOut" }}
+                  className="group rounded-3xl border border-emerald-950/10 bg-white p-5 shadow-sm open:bg-emerald-50/60"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-slate-950">
+                    {faq.question}
+                    <ChevronRight className="h-5 w-5 shrink-0 text-emerald-700 transition group-open:rotate-90" />
+                  </summary>
+                  <p className="mt-4 leading-7 text-slate-600">{faq.answer}</p>
+                </motion.details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 pb-20 sm:px-6 lg:px-8">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="mx-auto flex max-w-5xl flex-col items-center rounded-[2rem] bg-emerald-700 px-6 py-10 text-center text-white shadow-2xl shadow-emerald-900/20 sm:px-10"
+          >
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-emerald-100">Đặt lịch tư vấn hôm nay</p>
+            <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Cần nghe rõ hơn? Hãy để Âu Việt hỗ trợ bạn chọn giải pháp phù hợp.</h2>
+            <p className="mt-4 max-w-2xl text-emerald-50/85">
+              Gọi hoặc nhắn Zalo để được tư vấn máy trợ thính chính hãng, kiểm tra máy cũ, mua pin và phụ kiện tại Gò Vấp.
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <CTAButton href={`tel:${PHONE_TEL}`} variant="light">
+                <Phone className="h-5 w-5" />
+                Gọi {PHONE}
+              </CTAButton>
+              <CTAButton href="#contact" variant="secondary" className="border-white/30 bg-white/10 text-white hover:bg-white/20">
+                <CalendarCheck className="h-5 w-5" />
+                Xem địa chỉ cửa hàng
+              </CTAButton>
+            </div>
+          </motion.div>
+        </section>
+      </main>
+
+      <footer id="contact" className="border-t border-emerald-950/10 bg-emerald-950 px-4 py-12 text-white sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3">
+          <div>
+            <a href="#hero" className="flex items-center gap-3 font-serif text-2xl font-bold tracking-tight text-white">
+              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-emerald-800">
+                <Ear className="h-6 w-6" />
+              </span>
+              {BRAND}
+            </a>
+            <p className="mt-4 max-w-sm leading-7 text-emerald-50/75">
+              Chìa khóa âm thanh của bạn. Phân phối máy trợ thính chính hãng, pin, sửa chữa, bảo trì và hiệu chỉnh máy tại TP.HCM.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-serif text-xl font-semibold text-white">Thông Tin Liên Hệ</h3>
+            <ul className="mt-4 space-y-3 text-sm leading-6 text-emerald-50/75">
+              <li className="flex gap-3">
+                <Phone className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" />
+                <span>Hotline/Zalo: {PHONE}</span>
+              </li>
+              <li className="flex gap-3">
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" />
+                <span>Địa chỉ: {ADDRESS}</span>
+              </li>
+              <li className="flex gap-3">
+                <Clock className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" />
+                <span>Giờ làm việc: {HOURS}</span>
+              </li>
+              <li className="flex gap-3">
+                <CalendarCheck className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" />
+                <span>Lịch làm việc: {WORKING_DAYS}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-serif text-xl font-semibold text-white">Kết Nối Với Âu Việt</h3>
+            <p className="mt-4 leading-7 text-emerald-50/75">
+              Theo dõi thông tin sản phẩm, hướng dẫn sử dụng máy trợ thính và cập nhật phụ kiện mới.
+            </p>
+            <div className="mt-5 flex gap-3">
+              <a href="#" aria-label="Website Trợ Thính Âu Việt" className="grid h-11 w-11 place-items-center rounded-full bg-white text-emerald-800 shadow-sm transition hover:-translate-y-1 hover:bg-emerald-100">
+                <Globe className="h-5 w-5" />
+              </a>
+              <a href={`tel:${PHONE_TEL}`} aria-label="Gọi Trợ Thính Âu Việt" className="grid h-11 w-11 place-items-center rounded-full bg-white text-emerald-800 shadow-sm transition hover:-translate-y-1 hover:bg-emerald-100">
+                <Phone className="h-5 w-5" />
+              </a>
+              <a href="#" aria-label="Kênh video Trợ Thính Âu Việt" className="grid h-11 w-11 place-items-center rounded-full bg-white text-emerald-800 shadow-sm transition hover:-translate-y-1 hover:bg-emerald-100">
+                <Music2 className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-emerald-50/65 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} {BRAND}. Máy trợ thính chính hãng tại Gò Vấp, TP.HCM.</p>
+          <p>SEO Local · Mobile-first · CRO-ready</p>
+        </div>
+      </footer>
+    </div>
+    );
 }
