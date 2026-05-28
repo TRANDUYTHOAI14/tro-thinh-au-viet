@@ -43,17 +43,17 @@ const heroImage =
 const services = [{
         icon: Ear,
         name: "Máy trợ thính chính hãng",
-        description: "Phân phối máy trợ thính từ Mỹ, Đức, Thụy Sỹ với nhiều dòng phù hợp từng mức độ nghe kém.",
+        description: "Tư vấn các dòng máy trợ thính phù hợp với từng mức độ nghe kém, nhu cầu sử dụng và khả năng thao tác của khách hàng.",
         price: "Tư vấn theo nhu cầu",
-        image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=900&q=85",
+        image: "https://trothinhauviet.com/wp-content/uploads/2025/12/kham-thinh-luc-1-Tro-thinh-au-viet-scaled.jpg",
         alt: "Máy trợ thính chính hãng tại Trợ Thính Âu Việt",
     },
     {
         icon: Stethoscope,
         name: "Đo thính lực & tư vấn",
-        description: "Kiểm tra khả năng nghe, phân tích tình trạng và đề xuất giải pháp phù hợp cho từng khách hàng.",
+        description: "Kiểm tra khả năng nghe, phân tích tình trạng thực tế và đề xuất giải pháp trợ thính phù hợp cho từng khách hàng.",
         price: "Liên hệ đặt lịch",
-        image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=85",
+        image: "https://trothinhauviet.com/wp-content/uploads/2025/12/kham-thinh-luc-2-Tro-thinh-au-viet-scaled.jpg",
         alt: "Đo thính lực và tư vấn máy trợ thính",
     },
     {
@@ -66,10 +66,10 @@ const services = [{
     },
     {
         icon: Gauge,
-        name: "Bảo trì & hiệu chỉnh máy",
-        description: "Tinh chỉnh âm lượng, chương trình nghe và vệ sinh định kỳ giúp máy hoạt động ổn định, dễ nghe hơn.",
+        name: "Bảo trì & hiệu chỉnh máy trợ thính",
+        description: "Kiểm tra âm thanh, vệ sinh máy và điều chỉnh lại cài đặt để máy nghe rõ, êm tai và hoạt động ổn định hơn.",
         price: "Hỗ trợ sau bán",
-        image: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=900&q=85",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRZP077sk19psw8qijkFOVhW0Et94A44BQ_A&s",
         alt: "Hiệu chỉnh máy trợ thính tại Gò Vấp",
     },
     {
@@ -77,7 +77,7 @@ const services = [{
         name: "Pin & phụ kiện trợ thính",
         description: "Cung cấp pin, núm tai, dây dẫn, phụ kiện thay thế và vật tư chăm sóc máy trợ thính.",
         price: "Có sẵn tại cửa hàng",
-        image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?auto=format&fit=crop&w=900&q=85",
+        image: "https://www.hab.online/wp-content/uploads/2023/04/Hearing-Aid-Batteries-300x300.jpeg",
         alt: "Pin và phụ kiện máy trợ thính",
     },
     {
@@ -85,7 +85,7 @@ const services = [{
         name: "Chăm sóc khách hàng lớn tuổi",
         description: "Hướng dẫn sử dụng nhẹ nhàng, dễ hiểu, đồng hành cùng gia đình trong quá trình làm quen với máy.",
         price: "Tận tâm từng trường hợp",
-        image: "https://images.unsplash.com/photo-1581579438747-104c53d7fbc4?auto=format&fit=crop&w=900&q=85",
+        image: "https://s3.amazonaws.com/media.audiologydesign.com/wp-content/uploads/sites/331/2022/12/07205608/man-in-blue-shirt-seeing-his-audiologist-for-hearing-aid-evaluation.jpg",
         alt: "Tư vấn máy trợ thính cho người lớn tuổi",
     },
 ];
@@ -437,8 +437,8 @@ export default function TroThinhAuVietLandingPage() {
           <div className="mx-auto max-w-7xl">
             <SectionHeading
               eyebrow="Dịch vụ chính"
-              title="Máy Trợ Thính, Pin, Sửa Chữa & Hiệu Chỉnh Máy Tại TP.HCM"
-              subtitle="Từ chọn máy mới đến chăm sóc máy đang sử dụng, Trợ Thính Âu Việt hỗ trợ trọn quy trình để khách hàng nghe thoải mái và ổn định hơn."
+              title="Máy Trợ Thính, Pin & Sửa Chữa Tận Tâm Tại TP.HCM"
+              subtitle="Âu Việt hỗ trợ từ tư vấn chọn máy, thay pin, kiểm tra thính lực đến vệ sinh – hiệu chỉnh máy trợ thính, giúp khách hàng nghe thoải mái và ổn định hơn mỗi ngày."
             />
 
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
