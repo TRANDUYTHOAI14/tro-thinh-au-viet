@@ -113,16 +113,16 @@ const trustBadges = [{
 ];
 
 const problems = [{
-        title: "Nghe không rõ lời nói",
-        text: "Người thân phải lặp lại nhiều lần, đặc biệt khi nói chuyện trong môi trường đông người.",
+        title: "Nghe không rõ khi trò chuyện",
+        text: "Người thân thường phải lặp lại nhiều lần, đặc biệt khi nói chuyện trong môi trường đông người hoặc có tiếng ồn.",
     },
     {
-        title: "Sợ mua nhầm máy không phù hợp",
-        text: "Mỗi tình trạng nghe kém cần cấu hình và kiểu máy khác nhau, không nên chọn theo cảm tính.",
+        title: "Lo chọn nhầm máy không phù hợp",
+        text: "Mỗi mức độ nghe kém cần dòng máy và cách điều chỉnh khác nhau. Chọn sai có thể khiến âm thanh khó nghe hoặc đeo không thoải mái.",
     },
     {
-        title: "Máy cũ bị rè, yếu hoặc khó chịu",
-        text: "Máy trợ thính cần được vệ sinh, kiểm tra và hiệu chỉnh định kỳ để nghe thoải mái hơn.",
+        title: "Máy cũ nghe yếu, rè hoặc khó chịu",
+        text: "Sau thời gian sử dụng, máy trợ thính có thể cần vệ sinh, kiểm tra hoặc điều chỉnh lại để âm thanh dễ nghe hơn.",
     },
 ];
 
@@ -404,8 +404,8 @@ export default function TroThinhAuVietLandingPage() {
           <div className="mx-auto max-w-7xl">
             <SectionHeading
               eyebrow="Vấn đề thường gặp"
-              title="Nghe Kém Không Chỉ Là Âm Lượng, Mà Là Chất Lượng Cuộc Sống"
-              subtitle="Một chiếc máy phù hợp giúp người dùng nghe rõ lời nói, tự tin giao tiếp và giảm cảm giác mệt mỏi khi phải cố nghe mỗi ngày."
+              title="Nghe Rõ Hơn, Giao Tiếp Tự Tin Hơn Mỗi Ngày"
+              subtitle="Máy trợ thính phù hợp giúp người nghe kém tiếp nhận âm thanh tốt hơn, giảm bất tiện khi trò chuyện và sinh hoạt cùng gia đình."
             />
 
             <div className="grid gap-5 md:grid-cols-3">
@@ -425,7 +425,7 @@ export default function TroThinhAuVietLandingPage() {
                   <h3 className="font-sans text-xl font-semibold text-slate-950">{item.title}</h3>
                   <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
                   <div className="mt-5 flex items-center gap-2 text-sm font-bold text-emerald-700">
-                    Âu Việt hỗ trợ tư vấn giải pháp <ChevronRight className="h-4 w-4" />
+                    Nhận tư vấn từ Âu Việt <ChevronRight className="h-4 w-4" />
                   </div>
                 </motion.article>
               ))}
