@@ -424,9 +424,6 @@ export default function TroThinhAuVietLandingPage() {
                   </div>
                   <h3 className="font-sans text-xl font-semibold text-slate-950">{item.title}</h3>
                   <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
-                  <div className="mt-5 flex items-center gap-2 text-sm font-bold text-emerald-700">
-                    Nhận tư vấn từ Âu Việt <ChevronRight className="h-4 w-4" />
-                  </div>
                 </motion.article>
               ))}
             </div>
