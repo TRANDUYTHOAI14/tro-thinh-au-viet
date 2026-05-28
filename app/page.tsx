@@ -34,7 +34,7 @@ const HOURS = "8h00 - 17h30";
 const WORKING_DAYS = "Thứ 2 - Thứ 7";
 
 const heroImage =
-    "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=85";
+    "https://i0.wp.com/elkhartaudiology.com/wp-content/uploads/2017/07/resound_hearingaids.jpg";
 
 const services = [{
         icon: Ear,
@@ -301,9 +301,9 @@ export default function TroThinhAuVietLandingPage() {
               transition={{ duration: 0.65, ease: "easeOut" }}
               className="text-center lg:text-left"
             >
-              <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-                {BRAND} - Máy Trợ Thính Chính Hãng Mỹ, Đức, Thụy Sỹ Tại Gò Vấp
-              </h1>
+              <h1 className="font-sans text-3xl font-bold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-[44px]">
+  {BRAND} - Máy Trợ Thính Chính Hãng Mỹ, Đức, Thụy Sỹ Tại Gò Vấp
+</h1>
 
               <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg lg:mx-0">
                 Tư vấn máy trợ thính phù hợp theo nhu cầu nghe, hỗ trợ pin, sửa chữa, bảo trì và hiệu chỉnh máy. Đồng hành nhẹ nhàng cùng người lớn tuổi để nghe rõ hơn mỗi ngày.
