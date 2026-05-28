@@ -45,7 +45,7 @@ const services = [{
         name: "Máy trợ thính chính hãng",
         description: "Tư vấn các dòng máy trợ thính phù hợp với từng mức độ nghe kém, nhu cầu sử dụng và khả năng thao tác của khách hàng.",
         price: "Tư vấn theo nhu cầu",
-        image: "https://trothinhauviet.com/wp-content/uploads/2025/12/kham-thinh-luc-1-Tro-thinh-au-viet-scaled.jpg",
+        image: "https://tantrumbeer.com/wp-content/uploads/2025/04/man-holding-hearing-aid-.jpg",
         alt: "Máy trợ thính chính hãng tại Trợ Thính Âu Việt",
     },
     {
