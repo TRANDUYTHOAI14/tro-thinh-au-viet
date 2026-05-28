@@ -277,11 +277,15 @@ function CTAButton({
         light: "bg-white text-emerald-800 shadow-lg shadow-emerald-950/20 hover:-translate-y-0.5 hover:bg-emerald-50",
     };
 
-    return (
-        <a href={href} className={`${base} ${styles[variant]} ${className}`}>
-      {children}
-    </a>
-    );
+return (
+  <a
+    href={href}
+    target={href.startsWith("http") ? "_top" : undefined}
+    className={`${base} ${styles[variant]} ${className}`}
+  >
+    {children}
+  </a>
+);
 }
 
 export default function TroThinhAuVietLandingPage() {
