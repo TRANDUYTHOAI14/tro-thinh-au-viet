@@ -301,11 +301,6 @@ export default function TroThinhAuVietLandingPage() {
               transition={{ duration: 0.65, ease: "easeOut" }}
               className="text-center lg:text-left"
             >
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-700/15 bg-white/70 px-4 py-2 text-sm font-semibold text-emerald-800 shadow-sm backdrop-blur">
-                <MapPin className="h-4 w-4" />
-                {ADDRESS}
-              </div>
-
               <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
                 {BRAND} - Máy Trợ Thính Chính Hãng Mỹ, Đức, Thụy Sỹ Tại Gò Vấp
               </h1>
