@@ -1,5 +1,5 @@
 "use client";
-
+import { Montserrat } from "next/font/google";
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -26,6 +26,10 @@ import {
     Wrench,
 } from "lucide-react";
 
+const montserrat = Montserrat({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700", "800"],
+});
 const BRAND = "Trợ Thính Âu Việt";
 const PHONE = "0931 702 768";
 const PHONE_TEL = "0931702768";
@@ -241,7 +245,7 @@ function SectionHeading({ eyebrow, title, subtitle, light = false }: SectionHead
         </p>
       )}
       <h2
-        className={`font-serif text-3xl font-semibold tracking-tight sm:text-4xl ${
+        className={`font-sans text-3xl font-semibold tracking-tight sm:text-4xl ${
           light ? "text-white" : "text-slate-950"
         }`}
       >
@@ -290,7 +294,7 @@ return (
 
 export default function TroThinhAuVietLandingPage() {
     return (
-        <div className="min-h-screen overflow-hidden bg-[#F7FAF6] font-sans text-slate-800 antialiased">
+        <div className={`${montserrat.className} min-h-screen overflow-hidden bg-[#F7FAF6] text-slate-800 antialiased`}>
       <main>
         <section id="hero" className="relative isolate px-4 pb-16 pt-0 sm:px-6 sm:pb-24 lg:px-8 lg:pt-0">
           <div className="absolute inset-x-0 top-20 -z-10 mx-auto h-72 max-w-5xl rounded-full bg-emerald-200/45 blur-3xl" />
@@ -357,7 +361,7 @@ export default function TroThinhAuVietLandingPage() {
                 <div className="absolute bottom-6 left-6 right-6 rounded-3xl bg-white/92 p-4 shadow-lg backdrop-blur-md">
                   <div className="flex items-center justify-between gap-3">
                     <div>
-                      <p className="font-serif text-lg font-semibold text-slate-950">Nghe rõ hơn, sống kết nối hơn</p>
+                      <p className="font-sans text-lg font-semibold text-slate-950">Nghe rõ hơn, sống kết nối hơn</p>
                       <p className="mt-1 text-sm text-slate-600">Tư vấn tận tâm · hiệu chỉnh theo nhu cầu</p>
                     </div>
                     <div className="rounded-2xl bg-emerald-700 p-3 text-white shadow-md">
@@ -418,7 +422,7 @@ export default function TroThinhAuVietLandingPage() {
                   <div className="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-emerald-700 text-white">
                     <Volume2 className="h-6 w-6" />
                   </div>
-                  <h3 className="font-serif text-xl font-semibold text-slate-950">{item.title}</h3>
+                  <h3 className="font-sans text-xl font-semibold text-slate-950">{item.title}</h3>
                   <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
                   <div className="mt-5 flex items-center gap-2 text-sm font-bold text-emerald-700">
                     Âu Việt hỗ trợ tư vấn giải pháp <ChevronRight className="h-4 w-4" />
@@ -465,7 +469,7 @@ export default function TroThinhAuVietLandingPage() {
                       <div className="mb-3 grid h-11 w-11 place-items-center rounded-2xl bg-emerald-700/10 text-emerald-700">
                         <Icon className="h-5 w-5" />
                       </div>
-                      <h3 className="font-serif text-xl font-semibold text-slate-950">{item.name}</h3>
+                      <h3 className="font-sans text-xl font-semibold text-slate-950">{item.name}</h3>
                       <p className="mt-2 min-h-[4.5rem] text-sm leading-6 text-slate-600">{item.description}</p>
                       <div className="mt-4 flex items-center justify-between gap-3">
                         <p className="text-sm font-extrabold text-emerald-700">{item.price}</p>
@@ -510,7 +514,7 @@ export default function TroThinhAuVietLandingPage() {
                     <div className="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-white text-emerald-800">
                       <Icon className="h-6 w-6" />
                     </div>
-                    <h3 className="font-serif text-xl font-semibold">{item.title}</h3>
+                    <h3 className="font-sans text-xl font-semibold">{item.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-emerald-50/80">{item.text}</p>
                   </motion.article>
                 );
@@ -538,8 +542,8 @@ export default function TroThinhAuVietLandingPage() {
                   transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
                   className="relative rounded-[1.75rem] border border-emerald-950/10 bg-white p-6 shadow-sm"
                 >
-                  <p className="font-serif text-4xl font-semibold text-emerald-700/25">{item.step}</p>
-                  <h3 className="mt-4 font-serif text-xl font-semibold text-slate-950">{item.title}</h3>
+                  <p className="font-sans text-4xl font-semibold text-emerald-700/25">{item.step}</p>
+                  <h3 className="mt-4 font-sans text-xl font-semibold text-slate-950">{item.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
                 </motion.article>
               ))}
@@ -639,7 +643,7 @@ export default function TroThinhAuVietLandingPage() {
             className="mx-auto flex max-w-5xl flex-col items-center rounded-[2rem] bg-emerald-700 px-6 py-10 text-center text-white shadow-2xl shadow-emerald-900/20 sm:px-10"
           >
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-emerald-100">Đặt lịch tư vấn hôm nay</p>
-            <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Cần nghe rõ hơn? Hãy để Âu Việt hỗ trợ bạn chọn giải pháp phù hợp.</h2>
+            <h2 className="font-sans text-3xl font-semibold sm:text-4xl">Cần nghe rõ hơn? Hãy để Âu Việt hỗ trợ bạn chọn giải pháp phù hợp.</h2>
             <p className="mt-4 max-w-2xl text-emerald-50/85">
               Gọi hoặc nhắn Zalo để được tư vấn máy trợ thính chính hãng, kiểm tra máy cũ, mua pin và phụ kiện tại Gò Vấp.
             </p>
@@ -660,7 +664,7 @@ export default function TroThinhAuVietLandingPage() {
       <footer id="contact" className="border-t border-emerald-950/10 bg-emerald-950 px-4 py-12 text-white sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3">
           <div>
-            <a href="#hero" className="flex items-center gap-3 font-serif text-2xl font-bold tracking-tight text-white">
+            <a href="#hero" className="flex items-center gap-3 font-sans text-2xl font-bold tracking-tight text-white">
               <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-emerald-800">
                 <Ear className="h-6 w-6" />
               </span>
@@ -672,7 +676,7 @@ export default function TroThinhAuVietLandingPage() {
           </div>
 
           <div>
-            <h3 className="font-serif text-xl font-semibold text-white">Thông Tin Liên Hệ</h3>
+            <h3 className="font-sans text-xl font-semibold text-white">Thông Tin Liên Hệ</h3>
             <ul className="mt-4 space-y-3 text-sm leading-6 text-emerald-50/75">
               <li className="flex gap-3">
                 <Phone className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" />
@@ -694,7 +698,7 @@ export default function TroThinhAuVietLandingPage() {
           </div>
 
           <div>
-            <h3 className="font-serif text-xl font-semibold text-white">Kết Nối Với Âu Việt</h3>
+            <h3 className="font-sans text-xl font-semibold text-white">Kết Nối Với Âu Việt</h3>
             <p className="mt-4 leading-7 text-emerald-50/75">
               Theo dõi thông tin sản phẩm, hướng dẫn sử dụng máy trợ thính và cập nhật phụ kiện mới.
             </p>
