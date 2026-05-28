@@ -287,39 +287,8 @@ function CTAButton({
 export default function TroThinhAuVietLandingPage() {
     return (
         <div className="min-h-screen overflow-hidden bg-[#F7FAF6] font-sans text-slate-800 antialiased">
-      <header className="sticky top-0 z-50 border-b border-emerald-950/10 bg-[#F7FAF6]/90 backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Main navigation">
-          <a href="#hero" className="flex items-center gap-2 font-serif text-xl font-bold tracking-tight text-emerald-900 sm:text-2xl">
-            <span className="grid h-10 w-10 place-items-center rounded-2xl bg-emerald-700 text-white">
-              <Ear className="h-6 w-6" />
-            </span>
-            <span>{BRAND}</span>
-          </a>
-
-          <div className="hidden items-center gap-8 text-sm font-semibold text-slate-600 md:flex">
-            <a className="transition hover:text-emerald-700" href="#services">
-              Dịch vụ
-            </a>
-            <a className="transition hover:text-emerald-700" href="#process">
-              Quy trình
-            </a>
-            <a className="transition hover:text-emerald-700" href="#reviews">
-              Đánh giá
-            </a>
-            <a className="transition hover:text-emerald-700" href="#contact">
-              Liên hệ
-            </a>
-          </div>
-
-          <CTAButton className="px-4 py-2.5 sm:px-5" href={`tel:${PHONE_TEL}`}>
-            <Phone className="h-4 w-4" />
-            <span className="hidden sm:inline">Hotline:</span> {PHONE}
-          </CTAButton>
-        </nav>
-      </header>
-
       <main>
-        <section id="hero" className="relative isolate px-4 pb-16 pt-10 sm:px-6 sm:pb-24 lg:px-8 lg:pt-16">
+        <section id="hero" className="relative isolate px-4 pb-16 pt-0 sm:px-6 sm:pb-24 lg:px-8 lg:pt-0">
           <div className="absolute inset-x-0 top-20 -z-10 mx-auto h-72 max-w-5xl rounded-full bg-emerald-200/45 blur-3xl" />
           <div className="absolute -right-20 top-52 -z-10 h-72 w-72 rounded-full bg-lime-200/40 blur-3xl" />
           <div className="absolute left-0 top-0 -z-10 h-full w-full opacity-[0.06] [background-image:linear-gradient(120deg,#065f46_1px,transparent_1px)] [background-size:24px_24px]" />
