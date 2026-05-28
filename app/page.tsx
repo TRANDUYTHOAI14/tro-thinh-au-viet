@@ -34,7 +34,7 @@ const HOURS = "8h00 - 17h30";
 const WORKING_DAYS = "Thứ 2 - Thứ 7";
 
 const heroImage =
-    "https://i0.wp.com/elkhartaudiology.com/wp-content/uploads/2017/07/resound_hearingaids.jpg";
+    "https://trothinhauviet.com/wp-content/uploads/2025/12/may-tro-thinh-au-viet.jpg";
 
 const services = [{
         icon: Ear,
