@@ -128,23 +128,23 @@ const problems = [{
 
 const whyChooseUs = [{
         icon: Ear,
-        title: "Hiểu đúng nhu cầu nghe",
-        text: "Tư vấn dựa trên mức độ nghe, thói quen sinh hoạt và khả năng thích nghi của từng khách hàng.",
+        title: "Tư vấn đúng nhu cầu nghe",
+        text: "Lắng nghe tình trạng thực tế, thói quen sinh hoạt và khả năng thao tác để gợi ý giải pháp trợ thính phù hợp hơn.",
     },
     {
         icon: Wrench,
-        title: "Có sửa chữa - bảo trì",
-        text: "Không chỉ bán máy, Âu Việt còn hỗ trợ kiểm tra, vệ sinh, thay phụ kiện và hiệu chỉnh máy.",
+        title: "Có sửa chữa & bảo trì",
+        text: "Hỗ trợ kiểm tra, vệ sinh, thay phụ kiện và hiệu chỉnh máy để thiết bị hoạt động ổn định, dễ nghe hơn.",
     },
     {
         icon: HeartHandshake,
         title: "Tận tâm với người lớn tuổi",
-        text: "Giải thích chậm rãi, hướng dẫn kỹ cách đeo, tháo, thay pin và bảo quản máy tại nhà.",
+        text: "Hướng dẫn chậm rãi cách đeo, tháo, chỉnh âm lượng, thay pin và bảo quản máy để người dùng dễ làm quen.",
     },
     {
         icon: MapPin,
         title: "Địa chỉ rõ ràng tại TP.HCM",
-        text: "Cửa hàng tại 1079 Phan Văn Trị, P. Gò Vấp, thuận tiện ghé tư vấn trực tiếp.",
+        text: "Cửa hàng tại 1079 Phan Văn Trị, P. Gò Vấp, thuận tiện để khách hàng ghé tư vấn và kiểm tra trực tiếp..",
     },
 ];
 
@@ -491,7 +491,7 @@ export default function TroThinhAuVietLandingPage() {
             <SectionHeading
               eyebrow="Vì sao chọn Âu Việt"
               title="Địa Chỉ Trợ Thính Đáng Tin Cậy Cho Gia Đình Tại Gò Vấp"
-              subtitle="Chúng tôi ưu tiên sự phù hợp, dễ nghe và khả năng sử dụng lâu dài thay vì chỉ bán một thiết bị đơn lẻ."
+              subtitle="Âu Việt đồng hành từ tư vấn chọn máy, hướng dẫn sử dụng đến bảo trì sau bán, giúp khách hàng nghe thoải mái và an tâm hơn trong sinh hoạt hằng ngày."
               light
             />
 
