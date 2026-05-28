@@ -315,10 +315,10 @@ export default function TroThinhAuVietLandingPage() {
                   Gọi Tư Vấn Ngay
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </CTAButton>
-                <CTAButton href="https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/" variant="secondary">
-                  <Volume2 className="h-5 w-5" />
-                  Xem Dịch Vụ
-                </CTAButton>
+<CTAButton href="https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/" variant="secondary">
+  <Volume2 className="h-5 w-5" />
+  Xem Dịch Vụ
+</CTAButton>
               </div>
 
               <div className="mt-8 grid gap-3 text-left text-sm text-slate-600 sm:grid-cols-3">
