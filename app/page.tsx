@@ -112,6 +112,46 @@ const trustBadges = [{
     },
 ];
 
+const productCategories = [
+  {
+    name: "IIC - Siêu nhỏ trong tai",
+    description: "Thiết kế cực nhỏ, nằm sâu trong ống tai, phù hợp khách cần sự kín đáo cao.",
+    image: "/images/category-iic.jpg",
+    href: "https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/iic-sieu-nho-trong-tai/",
+  },
+  {
+    name: "CIC - Nhỏ gọn trong tai",
+    description: "Dòng máy nhỏ, thẩm mỹ, dễ sử dụng, phù hợp nhiều mức độ nghe kém.",
+    image: "/images/category-cic.jpg",
+    href: "https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/cic-nho-gon-trong-tai/",
+  },
+  {
+    name: "ITC - Trong tai",
+    description: "Kích thước vừa phải, dễ thao tác, phù hợp người lớn tuổi cần sự tiện dụng.",
+    image: "/images/category-itc.jpg",
+    href: "https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/itc-trong-tai/",
+  },
+  {
+    name: "BTE - Sau tai",
+    description: "Công suất mạnh, bền bỉ, phù hợp người nghe kém từ trung bình đến nặng.",
+    image: "/images/category-bte.jpg",
+    href: "https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/bte-sau-tai/",
+  },
+  {
+    name: "RIC / RITE - Loa trong tai",
+    description: "Thiết kế hiện đại, âm thanh tự nhiên, đeo nhẹ và thẩm mỹ hơn.",
+    image: "/images/category-ric.jpg",
+    href: "https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/ric-rite-loa-trong-tai/",
+  },
+  {
+    name: "Pin & Phụ kiện",
+    description: "Pin máy trợ thính, núm tai, dây dẫn, phụ kiện vệ sinh và thay thế.",
+    image: "/images/category-accessories.jpg",
+    href: "https://trothinhauviet.com/san-pham/",
+  },
+];
+
+
 const problems = [{
         title: "Nghe không rõ khi trò chuyện",
         text: "Người thân thường phải lặp lại nhiều lần, đặc biệt khi nói chuyện trong môi trường đông người hoặc có tiếng ồn.",
@@ -424,6 +464,60 @@ export default function TroThinhAuVietLandingPage() {
             })}
           </motion.div>
         </section>
+
+        <section id="categories" className="px-4 py-20 sm:px-6 lg:px-8">
+  <div className="mx-auto max-w-7xl">
+    <SectionHeading
+      eyebrow="Danh mục sản phẩm"
+      title="Chọn Dòng Máy Trợ Thính Phù Hợp Với Nhu Cầu"
+      subtitle="Mỗi kiểu máy trợ thính có ưu điểm riêng về độ kín đáo, công suất, độ dễ thao tác và khả năng phù hợp với từng mức độ nghe kém."
+    />
+
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {productCategories.map((category, index) => (
+        <motion.article
+          key={category.name}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, delay: index * 0.06, ease: "easeOut" }}
+          whileHover={{ y: -8 }}
+          className="group overflow-hidden rounded-[1.75rem] border border-emerald-950/10 bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-emerald-950/10"
+        >
+          <a href={category.href} target="_top" className="block">
+            <div className="relative aspect-[4/3] overflow-hidden bg-emerald-50">
+              <img
+                src={category.image}
+                alt={category.name}
+                className="h-full w-full object-contain p-8 transition duration-500 group-hover:scale-105"
+              />
+
+              <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-emerald-800 shadow-sm backdrop-blur">
+                Máy trợ thính
+              </div>
+            </div>
+
+            <div className="p-6">
+              <h3 className="text-xl font-extrabold leading-snug text-slate-950">
+                {category.name}
+              </h3>
+
+              <p className="mt-3 min-h-[4.5rem] text-sm leading-7 text-slate-600">
+                {category.description}
+              </p>
+
+              <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-emerald-700 px-5 py-3 text-sm font-bold text-white transition group-hover:bg-emerald-900">
+                Xem sản phẩm
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </div>
+          </a>
+        </motion.article>
+      ))}
+    </div>
+  </div>
+</section>
 
         <section className="px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
