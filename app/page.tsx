@@ -338,7 +338,7 @@ export default function TroThinhAuVietLandingPage() {
       window.parent.postMessage(
         {
           type: "resize-iframe",
-          height: document.documentElement.scrollHeight,
+          height: Math.ceil(document.body.getBoundingClientRect().height) + 10,
         },
         "*"
       );
