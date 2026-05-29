@@ -122,7 +122,7 @@ const productCategories = [
   {
     name: "CIC - Nhỏ gọn trong tai",
     description: "Dòng máy nhỏ, thẩm mỹ, dễ sử dụng, phù hợp nhiều mức độ nghe kém.",
-    image: "/images/category-cic.jpg",
+    image: "/images/category-cic.png",
     href: "https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/cic-nho-gon-trong-tai/",
   },
   {
@@ -140,13 +140,13 @@ const productCategories = [
   {
     name: "RIC / RITE - Loa trong tai",
     description: "Thiết kế hiện đại, âm thanh tự nhiên, đeo nhẹ và thẩm mỹ hơn.",
-    image: "/images/category-ric.jpg",
+    image: "/images/category-ric.png",
     href: "https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/ric-rite-loa-trong-tai/",
   },
   {
     name: "Pin & Phụ kiện",
     description: "Pin máy trợ thính, núm tai, dây dẫn, phụ kiện vệ sinh và thay thế.",
-    image: "/images/category-accessories.jpg",
+    image: "/images/pin.jpg",
     href: "https://trothinhauviet.com/san-pham/",
   },
 ];
