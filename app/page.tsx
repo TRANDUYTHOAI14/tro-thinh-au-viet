@@ -293,6 +293,39 @@ return (
 }
 
 export default function TroThinhAuVietLandingPage() {
+  React.useEffect(() => {
+    const sendHeight = () => {
+      window.parent.postMessage(
+        {
+          type: "resize-iframe",
+          height: document.documentElement.scrollHeight,
+        },
+        "*"
+      );
+    };
+
+    sendHeight();
+
+    window.addEventListener("load", sendHeight);
+    window.addEventListener("resize", sendHeight);
+
+    const observer = new ResizeObserver(sendHeight);
+    observer.observe(document.body);
+
+    return () => {
+      window.removeEventListener("load", sendHeight);
+      window.removeEventListener("resize", sendHeight);
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <div className="...">
+      ...
+    </div>
+  );
+}
+  
     return (
         <div className={`${montserrat.className} min-h-screen overflow-hidden bg-[#F7FAF6] text-slate-800 antialiased`}>
       <main>
