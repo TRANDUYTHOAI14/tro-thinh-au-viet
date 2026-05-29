@@ -333,31 +333,49 @@ return (
 }
 
 export default function TroThinhAuVietLandingPage() {
-  React.useEffect(() => {
-    const sendHeight = () => {
-      window.parent.postMessage(
-        {
-          type: "resize-iframe",
-          height: Math.ceil(document.body.getBoundingClientRect().height) + 10,
-        },
-        "*"
-      );
-    };
+React.useEffect(() => {
+  const sendHeight = () => {
+    const height = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.clientHeight,
+      document.documentElement.scrollHeight,
+      document.documentElement.offsetHeight
+    );
 
-    sendHeight();
+    window.parent.postMessage(
+      {
+        type: "resize-iframe",
+        height: height,
+      },
+      "*"
+    );
+  };
 
-    window.addEventListener("load", sendHeight);
-    window.addEventListener("resize", sendHeight);
+  sendHeight();
 
-    const observer = new ResizeObserver(sendHeight);
-    observer.observe(document.body);
+  const timers = [
+    setTimeout(sendHeight, 300),
+    setTimeout(sendHeight, 800),
+    setTimeout(sendHeight, 1500),
+    setTimeout(sendHeight, 2500),
+  ];
 
-    return () => {
-      window.removeEventListener("load", sendHeight);
-      window.removeEventListener("resize", sendHeight);
-      observer.disconnect();
-    };
-  }, []);
+  window.addEventListener("load", sendHeight);
+  window.addEventListener("resize", sendHeight);
+  window.addEventListener("orientationchange", sendHeight);
+
+  const observer = new ResizeObserver(sendHeight);
+  observer.observe(document.body);
+
+  return () => {
+    timers.forEach(clearTimeout);
+    window.removeEventListener("load", sendHeight);
+    window.removeEventListener("resize", sendHeight);
+    window.removeEventListener("orientationchange", sendHeight);
+    observer.disconnect();
+  };
+}, []);
     return (
         <div className={`${montserrat.className} min-h-screen overflow-hidden bg-[#F7FAF6] text-slate-800 antialiased`}>
       <main>
