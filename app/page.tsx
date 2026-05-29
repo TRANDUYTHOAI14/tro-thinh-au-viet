@@ -117,37 +117,37 @@ const productCategories = [
     name: "IIC - Siêu nhỏ trong tai",
     description: "Thiết kế cực nhỏ, nằm sâu trong ống tai, phù hợp khách cần sự kín đáo cao.",
     image: "/images/category-iic.jpg",
-    href: "https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/iic-sieu-nho-trong-tai/",
+    href: "https://trothinhauviet.com/danh-muc-san-pham/iic-sieu-nho-trong-tai/",
   },
   {
     name: "CIC - Nhỏ gọn trong tai",
     description: "Dòng máy nhỏ, thẩm mỹ, dễ sử dụng, phù hợp nhiều mức độ nghe kém.",
     image: "/images/category-cic.png",
-    href: "https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/cic-nho-gon-trong-tai/",
+    href: "https://trothinhauviet.com/danh-muc-san-pham/cic-hoan-toan-trong-ong-tai/",
   },
   {
     name: "ITC - Trong tai",
     description: "Kích thước vừa phải, dễ thao tác, phù hợp người lớn tuổi cần sự tiện dụng.",
     image: "/images/category-itc.jpg",
-    href: "https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/itc-trong-tai/",
+    href: "https://trothinhauviet.com/danh-muc-san-pham/itc-nam-trong-ong-tai/",
   },
   {
     name: "BTE - Sau tai",
     description: "Công suất mạnh, bền bỉ, phù hợp người nghe kém từ trung bình đến nặng.",
     image: "/images/category-bte.jpg",
-    href: "https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/bte-sau-tai/",
+    href: "https://trothinhauviet.com/danh-muc-san-pham/may-tro-thinh-bte/",
   },
   {
     name: "RIC / RITE - Loa trong tai",
     description: "Thiết kế hiện đại, âm thanh tự nhiên, đeo nhẹ và thẩm mỹ hơn.",
     image: "/images/category-ric.png",
-    href: "https://trothinhauviet.com/dich-vu-tro-thinh-au-viet/ric-rite-loa-trong-tai/",
+    href: "https://trothinhauviet.com/danh-muc-san-pham/ric-loa-nam-trong-ong-tai/",
   },
   {
     name: "Pin & Phụ kiện",
     description: "Pin máy trợ thính, núm tai, dây dẫn, phụ kiện vệ sinh và thay thế.",
     image: "/images/pin.jpg",
-    href: "https://trothinhauviet.com/san-pham/",
+    href: "#",
   },
 ];
 
