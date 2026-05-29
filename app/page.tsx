@@ -768,7 +768,7 @@ export default function TroThinhAuVietLandingPage() {
                 <Phone className="h-5 w-5" />
                 Gọi {PHONE}
               </CTAButton>
-              <CTAButton href="#contact" variant="secondary" className="border-white/30 bg-white/10 text-white hover:bg-white/20">
+              <CTAButton href="https://maps.app.goo.gl/vDV9FTv8nUzyy7jx7" variant="secondary" className="border-white/30 bg-white/10 text-white hover:bg-white/20">
                 <CalendarCheck className="h-5 w-5" />
                 Xem địa chỉ cửa hàng
               </CTAButton>
@@ -819,13 +819,13 @@ export default function TroThinhAuVietLandingPage() {
               Theo dõi thông tin sản phẩm, hướng dẫn sử dụng máy trợ thính và cập nhật phụ kiện mới.
             </p>
             <div className="mt-5 flex gap-3">
-              <a href="#" aria-label="Website Trợ Thính Âu Việt" className="grid h-11 w-11 place-items-center rounded-full bg-white text-emerald-800 shadow-sm transition hover:-translate-y-1 hover:bg-emerald-100">
+              <a href="https://trothinhauviet.com/" aria-label="Website Trợ Thính Âu Việt" className="grid h-11 w-11 place-items-center rounded-full bg-white text-emerald-800 shadow-sm transition hover:-translate-y-1 hover:bg-emerald-100">
                 <Globe className="h-5 w-5" />
               </a>
               <a href={`tel:${PHONE_TEL}`} aria-label="Gọi Trợ Thính Âu Việt" className="grid h-11 w-11 place-items-center rounded-full bg-white text-emerald-800 shadow-sm transition hover:-translate-y-1 hover:bg-emerald-100">
                 <Phone className="h-5 w-5" />
               </a>
-              <a href="#" aria-label="Kênh video Trợ Thính Âu Việt" className="grid h-11 w-11 place-items-center rounded-full bg-white text-emerald-800 shadow-sm transition hover:-translate-y-1 hover:bg-emerald-100">
+              <a href="https://www.facebook.com/profile.php?id=100086517230608" aria-label="Kênh video Trợ Thính Âu Việt" className="grid h-11 w-11 place-items-center rounded-full bg-white text-emerald-800 shadow-sm transition hover:-translate-y-1 hover:bg-emerald-100">
                 <Music2 className="h-5 w-5" />
               </a>
             </div>
@@ -834,7 +834,6 @@ export default function TroThinhAuVietLandingPage() {
 
         <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-emerald-50/65 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {BRAND}. Máy trợ thính chính hãng tại Gò Vấp, TP.HCM.</p>
-          <p>SEO Local · Mobile-first · CRO-ready</p>
         </div>
       </footer>
     </div>
