@@ -318,14 +318,6 @@ export default function TroThinhAuVietLandingPage() {
       observer.disconnect();
     };
   }, []);
-
-  return (
-    <div className="...">
-      ...
-    </div>
-  );
-}
-  
     return (
         <div className={`${montserrat.className} min-h-screen overflow-hidden bg-[#F7FAF6] text-slate-800 antialiased`}>
       <main>
